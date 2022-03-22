@@ -6,9 +6,11 @@ services:
       context: .
       dockerfile: Dockerfiles/nest-app.dockerfile
     image: nestjs-app
+    env_file:
+      - ./.env
     volumes:
       - .:/app
     stdin_open: true
     tty: true
     ports:
-      - 5000:5000
+      - ${APP_PORT:-3000}:${APP_PORT:-3000}
