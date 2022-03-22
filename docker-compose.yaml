@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nestjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfiles/nest-app.dockerfile
+    image: nestjs-app
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    ports:
+      - 5000:5000
